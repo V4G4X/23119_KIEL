@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"ASS7.obj" 
+TO "ASS7" 
+RAMSIZE(256) 

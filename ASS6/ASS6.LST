@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  ASS6                                                                 03/27/2019 09:29:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.00b
+OBJECT MODULE PLACED IN ASS6.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ASS6.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; ROLL NO. 23119
+0000                   2     ORG 0000H
+0000 020040            3     LJMP START
+0040                   4     ORG 40H
+                       5     
+0040                   6     START:
+0040 7400              7     MOV A,#00H
+0042 7840              8     MOV R0,#40H
+0044 7B04              9     MOV R3,#04H
+0046                  10     LOOP:
+0046 26               11             ADD A,@R0
+0047 08               12             INC R0
+0048 DBFC             13             DJNZ R3,LOOP
+004A F550             14     MOV 50H,A
+004C 7840             15     MOV R0,#40H
+004E 900040           16     MOV DPTR,#0040H
+0051 7B04             17     MOV R3,#04H
+0053                  18     LOOP2:
+0053 E6               19             MOV A,@R0
+0054 F0               20             MOVX @DPTR,A
+0055 08               21             INC R0
+0056 A3               22             INC DPTR
+0057 DBFA             23             DJNZ R3,LOOP2
+                      24     
+0059 80FE             25     HERE: SJMP HERE
+                      26     END
+A51 MACRO ASSEMBLER  ASS6                                                                 03/27/2019 09:29:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE . . . . . . .  C ADDR   0059H   A   
+LOOP . . . . . . .  C ADDR   0046H   A   
+LOOP2. . . . . . .  C ADDR   0053H   A   
+START. . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

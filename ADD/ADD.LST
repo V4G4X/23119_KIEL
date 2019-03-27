@@ -1,0 +1,52 @@
+A51 MACRO ASSEMBLER  ADD                                                                  03/27/2019 09:42:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.00b
+OBJECT MODULE PLACED IN ADD.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ADD.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; ROLL NO. 23119
+0000                   2     ORG 0000H
+0000 020040            3     LJMP START
+0040                   4     ORG 40H
+                       5     
+0040                   6     START:
+0040 7400              7     MOV A,#00H
+0042 7840              8     MOV R0,#40H
+0044 7B04              9     MOV R3,#04H
+0046                  10     LOOP:
+0046 26               11             ADD A,@R0
+0047 4009             12             JC CARRY
+0049                  13             CONTINUE:
+0049 08               14             INC R0
+004A DBFA             15             DJNZ R3,LOOP
+004C F550             16     MOV 50H,A
+004E AE50             17     MOV R6,50H
+0050 8003             18     JMP HERE
+0052                  19     CARRY:
+0052 0F               20             INC R7
+0053 80F4             21             JMP     CONTINUE
+                      22     
+0055 80FE             23     HERE: SJMP HERE
+                      24     END
+A51 MACRO ASSEMBLER  ADD                                                                  03/27/2019 09:42:38 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CARRY. . . . . . .  C ADDR   0052H   A   
+CONTINUE . . . . .  C ADDR   0049H   A   
+HERE . . . . . . .  C ADDR   0055H   A   
+LOOP . . . . . . .  C ADDR   0046H   A   
+START. . . . . . .  C ADDR   0040H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
