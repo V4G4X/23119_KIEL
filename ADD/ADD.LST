@@ -1,7 +1,7 @@
-A51 MACRO ASSEMBLER  ADD                                                                  03/27/2019 09:42:38 PAGE     1
+A51 MACRO ASSEMBLER  ADD                                                                  03/31/2019 18:24:59 PAGE     1
 
 
-MACRO ASSEMBLER A51 V8.00b
+MACRO ASSEMBLER A51 V8.02
 OBJECT MODULE PLACED IN ADD.OBJ
 ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ADD.A51 SET(SMALL) DEBUG EP
 
@@ -31,7 +31,7 @@ LOC  OBJ            LINE     SOURCE
                       22     
 0055 80FE             23     HERE: SJMP HERE
                       24     END
-A51 MACRO ASSEMBLER  ADD                                                                  03/27/2019 09:42:38 PAGE     2
+A51 MACRO ASSEMBLER  ADD                                                                  03/31/2019 18:24:59 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
