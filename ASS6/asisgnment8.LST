@@ -1,0 +1,73 @@
+A51 MACRO ASSEMBLER  ASISGNMENT8                                                          03/28/2019 05:18:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.00b
+OBJECT MODULE PLACED IN asisgnment8.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE asisgnment8.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000 758920            1     mov TMOD, #20h
+0003 7588FD            2     mov TCON, #-3h
+0006 759850            3     mov SCON, #50h
+0009 D28E              4     setb TR1
+                       5     
+000B                   6     print:
+000B 742A              7             mov a, #2Ah             ;*
+000D 1135              8             acall trans             
+000F 7473              9             mov a, #73h             ;s
+0011 1135             10             acall trans
+0013 7468             11             mov a, #68h             ;h
+0015 1135             12             acall trans
+0017 7472             13             mov a, #72h             ;r
+0019 1135             14             acall trans
+001B 7461             15             mov a, #61h     ;a
+001D 1135             16             acall trans
+001F 7464             17             mov a, #64h             ;d
+0021 1135             18             acall trans
+0023 7464             19             mov a,#64h          ;d
+0025 1135             20             acall trans
+                      21             ;mov a, #6Bh            ;k
+                      22             ;acall trans
+                      23             ;mov a, #73h            ;s
+                      24             ;acall trans
+0027 7468             25             mov a, #68h             ;h
+0029 1135             26             acall trans
+002B 7461             27             mov a, #61h     ;a
+002D 1135             28             acall trans
+                      29             ;mov a, #69h            ;i
+                      30             ;acall trans
+002F 742A             31             mov a, #2Ah             ;*
+0031 1135             32             acall trans
+0033 80D6             33             sjmp print
+0035                  34     trans:
+0035 F599             35             mov SBUF,a
+                      36     
+0037                  37     here:
+0037 3099FD           38             jnb TI,here
+003A C299             39     clr TI
+003C 22               40     ret
+*** WARNING #A41 IN 40 (asisgnment8.asm, LINE 40): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  ASISGNMENT8                                                          03/28/2019 05:18:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+HERE . . . . . . .  C ADDR   0037H   A   
+PRINT. . . . . . .  C ADDR   000BH   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TRANS. . . . . . .  C ADDR   0035H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
