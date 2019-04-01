@@ -7,6 +7,8 @@ START:
 MOV A,#00H			 	;INITIALIZE ACC
 MOV R0,#40H				;SET STARTING INTERNAL MEMORY ADDRESS
 MOV R3,#04H				;SET 'n'
+
+;--------------------------------------------------------------------------------------------------------
 LOOP:
 	ADD A,@R0			;ADD TO ACCUMULATOR THE VALUE STORED IN MEMORY LOCATION POINTED AT BY R0
 	INC R0				
@@ -20,8 +22,23 @@ LOOP2:					;LOOP TO TRANSFER DATA FROM INTERNAL TO EXTERNAL MEMORY
 	MOV A,@R0
 	MOVX @DPTR,A
 	INC R0
-	INC DPTR
+	INC DPTR																														 
 	DJNZ R3,LOOP2
+;---------------------------------------------------------------------------------------------------------
+
+;
+;---------------------------------------------------------------------------------------------------------
+MOV R0,#59H
+MOV DPTR,#40H
+MOV R3,#04H
+LOOP3:
+	MOVX A,@DPTR
+	MOV @R0,A
+	INC R0
+	INC DPTR
+	DJNZ R3,LOOP3
+	
+;---------------------------------------------------------------------------------------------------------
 
 HERE: SJMP HERE
 END

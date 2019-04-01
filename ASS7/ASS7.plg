@@ -4,7 +4,7 @@
 <h1>µVision3 Build Log</h1>
 <h2>Project:</h2>
 C:\Users\mllab21\Desktop\23119_KIEL\ASS7\ASS7.uv2
-Project File Date:  03/27/2019
+Project File Date:  <unknown>
 
 <h2>Output:</h2>
 Build target 'Target 1'
@@ -22,4 +22,34 @@ linking...
     MODULE:  STARTUP.obj (?C_STARTUP)
     ADDRESS: 080AH
 Program Size: data=9.0 xdata=0 code=106
+"ASS7" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+assembling ASS7.A51...
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+    ADDRESS: 080AH
+Program Size: data=9.0 xdata=0 code=119
+"ASS7" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+assembling ASS7.A51...
+linking...
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0002H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?C_START
+    MODULE:  STARTUP.obj (?C_STARTUP)
+    ADDRESS: 080AH
+Program Size: data=9.0 xdata=0 code=119
 "ASS7" - 0 Error(s), 3 Warning(s).

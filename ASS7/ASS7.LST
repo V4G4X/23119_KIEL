@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  ASS7                                                                 03/27/2019 09:45:19 PAGE     1
+A51 MACRO ASSEMBLER  ASS7                                                                 04/01/2019 09:53:33 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.00b
@@ -7,36 +7,59 @@ ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ASS7.A51 SET(SMALL) DEBUG EP
 
 LOC  OBJ            LINE     SOURCE
 
-                       1                                        ; ROLL NO. 23119
+                       1     ; ROLL NO. 23119
 0000                   2     ORG 0000H
 0000 020040            3     LJMP START
 0040                   4     ORG 40H
-                       5     
-0040                   6     START:
+0040                   5     START:
+                       6     
 0040 7400              7     MOV A,#00H                              ;INITIALIZE ACC
 0042 7840              8     MOV R0,#40H                             ;SET STARTING INTERNAL MEMORY ADDRESS
 0044 7B04              9     MOV R3,#04H                             ;SET 'n'
-0046                  10     LOOP:
-0046 26               11             ADD A,@R0                       ;ADD TO ACCUMULATOR THE VALUE STORED IN MEMORY LOCA
+                      10     ;The following code copies 
+                      11     ;------------------------------------------------------------------------------------------
+                             --------------
+0046                  12     LOOP:
+0046 26               13             ADD A,@R0                       ;ADD TO ACCUMULATOR THE VALUE STORED IN MEMORY LOCA
                              TION POINTED AT BY R0
-0047 08               12             INC R0                          
-0048 DBFC             13             DJNZ R3,LOOP
-004A F550             14     MOV 50H,A                               ;MOVING SUM TO 50H IN INTERNAL
-004C 7840             15     MOV R0,#40H                             ;RESETTING VALUES
-004E 900040           16     MOV DPTR,#0040H
-0051 7B04             17     MOV R3,#04H
-                      18     
-0053                  19     LOOP2:                                  ;LOOP TO TRANSFER DATA FROM INTERNAL TO EXTERNAL ME
+0047 08               14             INC R0                          
+0048 DBFC             15             DJNZ R3,LOOP
+004A F550             16     MOV 50H,A                               ;MOVING SUM TO 50H IN INTERNAL
+                      17     
+004C 7840             18     MOV R0,#40H                             ;RESETTING VALUES
+004E 900040           19     MOV DPTR,#0040H
+0051 7B04             20     MOV R3,#04H
+0053                  21     LOOP2:                                  ;LOOP TO TRANSFER DATA FROM INTERNAL TO EXTERNAL ME
                              MORY
-0053 E6               20             MOV A,@R0
-0054 F0               21             MOVX @DPTR,A
-0055 08               22             INC R0
-0056 A3               23             INC DPTR
-0057 DBFA             24             DJNZ R3,LOOP2
-                      25     
-0059 80FE             26     HERE: SJMP HERE
-                      27     END
-A51 MACRO ASSEMBLER  ASS7                                                                 03/27/2019 09:45:19 PAGE     2
+0053 E6               22             MOV A,@R0
+0054 F0               23             MOVX @DPTR,A
+0055 08               24             INC R0
+0056 A3               25             INC DPTR                                                                           
+                                                                                                                        
+                                                                                                        
+0057 DBFA             26             DJNZ R3,LOOP2
+                      27     ;------------------------------------------------------------------------------------------
+                             ---------------
+                      28     
+                      29     ;
+                      30     ;------------------------------------------------------------------------------------------
+                             ---------------
+0059 7859             31     MOV R0,#59H
+005B 900040           32     MOV DPTR,#40H
+005E 7B04             33     MOV R3,#04H
+0060                  34     LOOP3:
+0060 E0               35             MOVX A,@DPTR
+0061 F6               36             MOV @R0,A
+0062 08               37             INC R0
+0063 A3               38             INC DPTR
+0064 DBFA             39             DJNZ R3,LOOP3
+                      40             
+                      41     ;------------------------------------------------------------------------------------------
+                             ---------------
+                      42     
+0066 80FE             43     HERE: SJMP HERE
+                      44     END
+A51 MACRO ASSEMBLER  ASS7                                                                 04/01/2019 09:53:33 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -44,9 +67,10 @@ SYMBOL TABLE LISTING
 
 N A M E             T Y P E  V A L U E   ATTRIBUTES
 
-HERE . . . . . . .  C ADDR   0059H   A   
+HERE . . . . . . .  C ADDR   0066H   A   
 LOOP . . . . . . .  C ADDR   0046H   A   
 LOOP2. . . . . . .  C ADDR   0053H   A   
+LOOP3. . . . . . .  C ADDR   0060H   A   
 START. . . . . . .  C ADDR   0040H   A   
 
 

@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.02                                                        03/27/2019  09:45:20  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.02                                                        04/01/2019  09:53:33  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.02, INVOKED BY:
@@ -22,8 +22,8 @@ LINK MAP OF MODULE:  ASS7 (?C_STARTUP)
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-* OVERLAP * CODE    0000H     005BH     ABSOLUTE     
-                    005BH     07A5H                  *** GAP ***
+* OVERLAP * CODE    0000H     0068H     ABSOLUTE     
+                    0068H     0798H                  *** GAP ***
             CODE    0800H     000CH     UNIT         ?C_C51STARTUP
 
 
@@ -59,7 +59,7 @@ SYMBOL TABLE OF MODULE:  ASS7 (?C_STARTUP)
   D:00A0H         SYMBOL        PPAGE_SFR
   D:0081H         SYMBOL        SP
   C:0800H         SYMBOL        STARTUP1
-BL51 BANKED LINKER/LOCATER V6.02                                                      03/27/2019  09:45:20  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.02                                                      04/01/2019  09:53:33  PAGE 2
 
 
   N:0000H         SYMBOL        XBPSTACK
@@ -76,27 +76,36 @@ SYMBOL TABLE OF MODULE:  ASS7 (?C_STARTUP)
   -------         ENDMOD        ?C_STARTUP
 
   -------         MODULE        ASS7
-  C:0059H         SYMBOL        HERE
+  C:0066H         SYMBOL        HERE
   C:0046H         SYMBOL        LOOP
   C:0053H         SYMBOL        LOOP2
+  C:0060H         SYMBOL        LOOP3
   C:0040H         SYMBOL        START
   C:0000H         LINE#         3
   C:0040H         LINE#         7
   C:0042H         LINE#         8
   C:0044H         LINE#         9
-  C:0046H         LINE#         11
-  C:0047H         LINE#         12
-  C:0048H         LINE#         13
-  C:004AH         LINE#         14
-  C:004CH         LINE#         15
-  C:004EH         LINE#         16
-  C:0051H         LINE#         17
-  C:0053H         LINE#         20
-  C:0054H         LINE#         21
-  C:0055H         LINE#         22
-  C:0056H         LINE#         23
-  C:0057H         LINE#         24
-  C:0059H         LINE#         26
+  C:0046H         LINE#         13
+  C:0047H         LINE#         14
+  C:0048H         LINE#         15
+  C:004AH         LINE#         16
+  C:004CH         LINE#         18
+  C:004EH         LINE#         19
+  C:0051H         LINE#         20
+  C:0053H         LINE#         22
+  C:0054H         LINE#         23
+  C:0055H         LINE#         24
+  C:0056H         LINE#         25
+  C:0057H         LINE#         26
+  C:0059H         LINE#         31
+  C:005BH         LINE#         32
+  C:005EH         LINE#         33
+  C:0060H         LINE#         35
+  C:0061H         LINE#         36
+  C:0062H         LINE#         37
+  C:0063H         LINE#         38
+  C:0064H         LINE#         39
+  C:0066H         LINE#         43
   -------         ENDMOD        ASS7
 
 *** WARNING L5: CODE SPACE MEMORY OVERLAP
@@ -110,11 +119,14 @@ SYMBOL TABLE OF MODULE:  ASS7 (?C_STARTUP)
 *** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
     SYMBOL:  ?C_START
     MODULE:  STARTUP.obj (?C_STARTUP)
+BL51 BANKED LINKER/LOCATER V6.02                                                      04/01/2019  09:53:33  PAGE 3
+
+
     ADDRESS: 080AH
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 002DH BYTE ( 2%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003AH BYTE ( 2%) *
 ******************************************************************************
 
-Program Size: data=9.0 xdata=0 code=106
+Program Size: data=9.0 xdata=0 code=119
 LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)
