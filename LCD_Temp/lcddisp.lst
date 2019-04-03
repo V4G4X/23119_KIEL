@@ -1,0 +1,92 @@
+A51 MACRO ASSEMBLER  LCDDISP                                                              04/02/2019 13:05:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.00b
+OBJECT MODULE PLACED IN .\lcddisp.obj
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ..\LCD\lcddisp.a51 SET(SMALL) DEBUG PRINT(.\lcddisp.lst) OBJECT(.\lcddisp.
+                      obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1        ;calls a time delay before sending next data/command
+                       2             ;P2.0-P2.7 are connected to LCD data pins D0-D7
+                       3             ;P1.0 is connected to RS pin of LCD
+                       4             ;P1.1 is connected to R/W pin of LCD
+                       5             ;P1.2 is connected to E pin of LCD
+0000                   6             ORG     0000H
+0000 7438              7             MOV     A,#38H          ;INIT. LCD 2 LINES, 5X7 MATRIX
+0002 1138              8             ACALL   COMNWRT         ;call command subroutine
+0004 1152              9             ACALL   DELAY           ;give LCD some time
+0006 740E             10             MOV     A,#0EH          ;display on, cursor on
+0008 1138             11             ACALL   COMNWRT         ;call command subroutine
+000A 1152             12             ACALL   DELAY           ;give LCD some time                                        
+                                                          0
+000C 7401             13             MOV     A,#01           ;clear LCD
+000E 1138             14             ACALL   COMNWRT         ;call command subroutine
+0010 1152             15             ACALL   DELAY           ;give LCD some time
+0012 7406             16             MOV     A,#06H          ;shift cursor right
+0014 1138             17             ACALL   COMNWRT         ;call command subroutine
+0016 1152             18             ACALL   DELAY           ;give LCD some time
+0018 7480             19             MOV     A,#080H                 ;cursor at line 1, pos. 4
+001A 1138             20             ACALL   COMNWRT         ;call command subroutine
+001C 1152             21             ACALL   DELAY           ;give LCD some time
+001E 7456             22             MOV     A,#'V'          ;display letter P
+0020 1145             23             ACALL   DATAWRT         ;call display subroutine
+0022 1152             24             ACALL   DELAY           ;give LCD some time
+0024 7445             25             MOV     A,#'E'          ;display letter I
+0026 1145             26             ACALL   DATAWRT         ;call display subroutine
+0028 1152             27             ACALL   DELAY           ;give LCD some time
+002A 7444             28             MOV     A,#'D'          ;display letter C
+002C 1145             29             ACALL   DATAWRT         ;call display subroutine
+002E 1152             30             ACALL   DELAY           ;give LCD some time
+0030 7441             31             MOV     A,#'A'          ;display letter T
+0032 1145             32             ACALL   DATAWRT         ;call display subroutine
+0034 1152             33             ACALL   DELAY           ;give LCD some time
+0036 80FE             34     AGAIN: SJMP     AGAIN           ;stay here
+0038                  35     COMNWRT:                        ;send command to LCD
+0038 F5A0             36             MOV     P2,A            ;copy reg A to port 1
+003A C290             37             CLR     P1.0            ;RS=0 for command
+003C C291             38             CLR     P1.1            ;R/W=0 for write
+003E D292             39             SETB    P1.2            ;E=1 for high pulse
+0040 1152             40             ACALL   DELAY           ;give LCD some time
+0042 C292             41             CLR     P1.2            ;E=0 for H-to-L pulse
+0044 22               42             RET
+0045                  43     DATAWRT:                        ;write data to LCD
+0045 F5A0             44             MOV     P2,A            ;copy reg A to port 1
+0047 D290             45             SETB    P1.0            ;RS=1 for data
+0049 C291             46             CLR     P1.1            ;R/W=0 for write
+004B D292             47             SETB    P1.2            ;E=1 for high pulse
+004D 1152             48             ACALL   DELAY           ;give LCD some time
+004F C292             49             CLR     P1.2            ;E=0 for H-to-L pulse
+0051 22               50             RET
+0052 7B32             51     DELAY:  MOV     R3,#50          ;50 or higher for fast CPUs
+0054 7CFF             52     HERE2:  MOV     R4,#255         ;R4 = 255
+0056 DCFE             53     HERE:   DJNZ    R4,HERE         ;stay until R4 becomes 0
+0058 DBFA             54             DJNZ    R3,HERE2
+005A 22               55             RET
+                      56             END
+A51 MACRO ASSEMBLER  LCDDISP                                                              04/02/2019 13:05:05 PAGE     2
+
+                             
+A51 MACRO ASSEMBLER  LCDDISP                                                              04/02/2019 13:05:05 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0036H   A   
+COMNWRT. . . . . .  C ADDR   0038H   A   
+DATAWRT. . . . . .  C ADDR   0045H   A   
+DELAY. . . . . . .  C ADDR   0052H   A   
+HERE . . . . . . .  C ADDR   0056H   A   
+HERE2. . . . . . .  C ADDR   0054H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
